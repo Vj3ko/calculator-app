@@ -1,0 +1,32 @@
+@use "./colors.scss" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  font-family: "Spartan", sans-serif;
+  display: grid;
+  place-items: center;
+  transition: 300ms ease-in-out;
+}
+
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     --bg-color: #fff;
+//     --text-color: #123;
+//   }
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --bg-color: #121212;
+//     --text-color: #696d7d;
+//   }
+// }

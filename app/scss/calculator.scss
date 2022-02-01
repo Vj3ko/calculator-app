@@ -1,0 +1,183 @@
+@use "./colors.scss" as *;
+@use "./breakpoints.scss" as *;
+@use "./functions.scss" as *;
+
+main {
+  padding: rem(24);
+  width: 100%;
+  max-width: rem(536);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: rem(25);
+
+  h1 {
+    font-size: rem(28);
+
+    @include breakpoint("medium") {
+      font-size: rem(40);
+    }
+  }
+
+  .theme-changer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      margin-right: rem(20);
+      text-transform: uppercase;
+      font-size: rem(12);
+      letter-spacing: rem(2);
+    }
+
+    .radio-field {
+      margin: auto;
+      position: relative;
+      border-radius: rem(30);
+      display: flex;
+      width: rem(70);
+      height: rem(25);
+      background: var(--keypad-color);
+      outline: none;
+      border: none;
+
+      & input {
+        position: absolute !important;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        width: 1px;
+        border: 0;
+        overflow: hidden;
+      }
+
+      & label {
+        position: absolute;
+        font-size: rem(12);
+        top: rem(-20);
+
+        &:before {
+          content: "";
+          background: var(--keys-equal);
+          width: rem(16);
+          height: rem(16);
+          position: absolute;
+          top: rem(24);
+          opacity: 0;
+          border-radius: 50%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      label:nth-child(2) {
+        left: 12%;
+      }
+
+      label:nth-child(4) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      label:nth-child(6) {
+        right: 12%;
+      }
+
+      & input:checked + label:before {
+        box-shadow: none;
+        opacity: 1;
+      }
+
+      & input:focus + label:before {
+        outline: rem(2) solid var(--text-color);
+      }
+    }
+  }
+}
+
+.output {
+  margin-top: rem(30);
+  width: 100%;
+  min-height: rem(90);
+  background: var(--output-color);
+  border-radius: rem(10);
+  display: flex;
+  justify-content: flex-end;
+
+  & > div {
+    padding: rem(10);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: var(--white);
+
+    .previous-operand {
+      font-size: rem(12);
+      display: flex;
+      align-self: flex-end;
+    }
+
+    .current-operand {
+      font-size: rem(35);
+    }
+  }
+}
+
+.input-container {
+  background: var(--keypad-color);
+  margin-top: rem(30);
+  padding: rem(20);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(rem(60), auto));
+  grid-template-rows: repeat(5, rem(60));
+  grid-gap: rem(10);
+  border-radius: rem(10);
+
+  @include breakpoint("medium") {
+    grid-gap: rem(20);
+  }
+
+  .span-two {
+    grid-column: span 2;
+  }
+
+  button {
+    color: var(--text-color);
+    background: var(--keys-bg);
+    font-family: var(--font-family);
+    font-size: rem(24);
+    font-weight: bold;
+    border-radius: rem(10);
+    border: none;
+    border-bottom: rem(5) solid var(--keys-shadow);
+    cursor: pointer;
+
+    &[data-equals] {
+      color: var(--white);
+      background: var(--keys-equal);
+      border-bottom: rem(5) solid var(--keys-equal-shadow);
+      font-size: rem(12);
+    }
+
+    &[data-delete],
+    &[data-reset] {
+      color: var(--white);
+      background: var(--keys-custom-bg);
+      border-bottom: rem(5) solid var(--keys-custom-shadow);
+      font-size: rem(12);
+    }
+
+    &:focus {
+      outline: rem(2) solid var(--keys-equal);
+    }
+  }
+}

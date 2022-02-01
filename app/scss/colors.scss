@@ -1,0 +1,72 @@
+// ### Theme blue
+:root,
+:root.blue {
+  --bg-color: hsl(222, 26%, 31%); //page background
+  --keypad-color: hsl(223, 31%, 20%); //keypad and toggle bg color
+  --output-color: hsl(224, 36%, 15%); // output color
+  --keys-custom-bg: hsl(225, 21%, 49%); // del and reset keys bg color
+  --keys-custom-shadow: hsl(224, 28%, 35%); // del and reset keys border shadow
+  --keys-equal: hsl(6, 63%, 50%); // equal sign bg color
+  --keys-equal-shadow: hsl(6, 70%, 34%); //equal sign shadow color
+  --keys-bg: hsl(30, 25%, 89%); // key background color
+  --keys-shadow: hsl(28, 16%, 65%); // key shadow color
+  --text-color: hsl(221, 14%, 31%); // text color
+  --white: #ffffff;
+
+  h1,
+  span,
+  label {
+    color: var(--white);
+  }
+}
+
+// ### Theme white
+:root.light {
+  --bg-color: hsl(0, 0%, 90%); //page background
+  --keypad-color: hsl(0, 5%, 81%); //keypad and toggle bg color
+  --output-color: hsl(0, 0%, 93%); // output color
+  --keys-custom-bg: hsl(185, 42%, 37%); // del and reset keys bg color
+  --keys-custom-shadow: hsl(185, 58%, 25%); // del and reset keys border shadow
+  --keys-equal: hsl(25, 98%, 40%); // equal sign bg color
+  --keys-equal-shadow: hsl(25, 99%, 27%); //equal sign shadow color
+  --keys-bg: hsl(45, 7%, 89%); // key background color
+  --keys-shadow: hsl(35, 11%, 61%); // key shadow color
+  --text-color: hsl(60, 10%, 19%); // text color
+  --white: #ffffff;
+
+  h1,
+  span,
+  label {
+    color: var(--text-color);
+  }
+}
+
+// ### Theme violet
+:root.custom {
+  --bg-color: hsl(268, 75%, 9%); //page background
+  --keypad-color: hsl(268, 71%, 12%); //keypad and toggle bg color
+  --output-color: hsl(268, 71%, 12%); // output color
+  --keys-custom-bg: hsl(281, 89%, 26%); // del and reset keys bg color
+  --keys-custom-shadow: hsl(285, 91%, 52%); // del and reset keys border shadow
+  --keys-equal: hsl(176, 100%, 44%); // equal sign bg color
+  --keys-equal-shadow: hsl(177, 92%, 70%); //equal sign shadow color
+  --keys-bg: hsl(268, 47%, 21%); // key background color
+  --keys-shadow: hsl(290, 70%, 36%); // key shadow color
+  --text-color: hsl(52, 100%, 62%); // text color
+  --text-blue: hsl(
+    198,
+    20%,
+    13%
+  ); // dark blue color in this theme only (for equals color))
+  --white: #ffffff;
+
+  h1,
+  span,
+  label {
+    color: var(--text-color);
+  }
+
+  button[data-equals] {
+    color: var(--text-blue);
+  }
+}

@@ -1,26 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Calculator app</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="./dist/style.css" />
 
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <title>Frontend Mentor | Calculator app</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>calc</h1>
+
+        <div class="theme-changer">
+          <span>Theme</span>
+          <fieldset class="radio-field">
+            <input
+              type="radio"
+              id="theme1"
+              name="theme-swticher"
+              value="blue"
+              class="one"
+              checked
+            />
+            <label for="theme1">1</label>
+
+            <input
+              type="radio"
+              id="theme2"
+              name="theme-swticher"
+              value="light"
+              class="two"
+            />
+            <label for="theme2">2</label>
+
+            <input
+              type="radio"
+              id="theme3"
+              name="theme-swticher"
+              value="custom"
+              class="three"
+            />
+            <label for="theme3">3</label>
+          </fieldset>
+        </div>
+      </header>
+
+      <section class="output">
+        <div>
+          <span data-previous-operation class="previous-operand"></span>
+          <span data-current-operation class="current-operand"></span>
+        </div>
+      </section>
+
+      <section class="input-container">
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button data-delete>DEL</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button data-operation>+</button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button data-operation>-</button>
+        <button data-number>.</button>
+        <button data-number>0</button>
+        <button data-operation>/</button>
+        <button data-operation>x</button>
+        <button data-reset class="span-two">RESET</button>
+        <button data-equals class="span-two">=</button>
+      </section>
+    </main>
+
+    <script src="./dist/script.js"></script>
+  </body>
 </html>
+
+<!-- stavit legend i sr-only -->
+<!-- stavit da zaokruzi decimalni broj tofixed(2) ili sta vec -->
+<!-- There should be one fieldset, a legend (sr only if needed, I can't remember the design), and 3 labels, each with an input and some text inside (text can be in a span if needed for styling).
+Depends how you're choosing to style the radios what you need to do.
+Stephanie Eckles has some excellent blog posts on styling accessible custom radios and checkboxes on her Modern CSS website if you google that -->
