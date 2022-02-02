@@ -8,8 +8,8 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 
 ### Links
 
-- Solution URL:
-- Live Site URL:
+- Solution URL: https://www.frontendmentor.io/solutions/calculator-app-keyboard-friendly-Lc2P7x60m
+- Live Site URL: https://calculator-app-sage-three.vercel.app/
 
 ### What I learned
 

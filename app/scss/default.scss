@@ -15,4 +15,5 @@ body {
   display: grid;
   place-items: center;
   transition: 300ms ease-in-out;
+  min-height: 100vh;
 }
