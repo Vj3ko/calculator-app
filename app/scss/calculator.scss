@@ -98,6 +98,10 @@ header {
       & input:focus + label:before {
         outline: rem(2) solid var(--text-color);
       }
+
+      & input:focus + label {
+        color: var(--keys-equal);
+      }
     }
   }
 }

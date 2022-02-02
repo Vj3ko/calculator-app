@@ -1,18 +1,36 @@
-// change themes
 const setTheme = (theme) => (document.documentElement.className = theme);
 const radioField = document.querySelector(".radio-field");
-radioField.addEventListener("change", (e) => {
-  let radioBtn = e.target.value;
+const userPrefersLight =
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: light)").matches;
+const userPrefersDark =
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+const inputs = document.querySelectorAll("input");
+inputs.checked = false;
 
-  if (radioBtn == "blue") {
+// move checkbox on user preference theme
+if (userPrefersLight) {
+  inputs[1].checked = true;
+} else if (userPrefersDark) {
+  inputs[0].checked = true;
+} else {
+  inputs[2].checked = true;
+}
+// change themes
+radioField.addEventListener("change", (e) => {
+  let radioBtn = e.target;
+
+  if (radioBtn.value == "blue") {
     setTheme("blue");
-  } else if (radioBtn == "light") {
+  } else if (radioBtn.value == "light") {
     setTheme("light");
   } else {
     setTheme("custom");
   }
 });
-////////////////////////
+
+//Calculator
 
 class Calculator {
   constructor(previousOperationTextElement, currentOperationTextElement) {
@@ -63,14 +81,14 @@ class Calculator {
       case "/":
         computation = prev / current;
         break;
-      case "x":
+      case "*":
         computation = prev * current;
         break;
       default:
         return;
     }
 
-    this.currentOperand = computation.toFixed;
+    this.currentOperand = computation;
     this.operation = undefined;
     this.previousOperand = "";
   }
@@ -104,7 +122,7 @@ class Calculator {
         this.previousOperand
       )} ${this.operation}`;
     } else {
-      this.previousOperationTextElement.innerText = '';
+      this.previousOperationTextElement.innerText = "";
     }
   }
 }
@@ -154,3 +172,41 @@ deleteButton.addEventListener("click", () => {
   calculator.delete();
   calculator.updateDisplay();
 });
+
+// allow user to use keyboard for numbers and operations input
+window.addEventListener("keypress", (e) => {
+  let keyPressed = e.key;
+  numberButtons.forEach((button) => {
+    if (keyPressed == button.innerText) {
+      calculator.appendNumber(keyPressed);
+      calculator.updateDisplay();
+    }
+  });
+
+  operationButtons.forEach((button) => {
+    if (keyPressed == button.innerText) {
+      calculator.chooseOperation(keyPressed);
+      calculator.updateDisplay();
+    }
+  });
+});
+
+// when user presses enter  activates '='
+// when user presses C  activates 'reset'
+// when user presses backspace activates 'del'
+const keys = document.querySelectorAll(".key");
+function keyboardInput() {
+  document.addEventListener("keyup", function (event) {
+    if (event.code === 'NumpadEnter') {
+      keys[2].click();
+    } else if (event.code === 'Backspace') {
+      keys[0].click();
+    } else if (event.code === 'KeyC' && keys[1].value == "c") {
+      keys[1].click();
+    } else {
+      return;
+    }
+  });
+}
+
+keyboardInput();

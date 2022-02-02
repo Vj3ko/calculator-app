@@ -37,6 +37,8 @@
               name="theme-swticher"
               value="blue"
               class="one"
+              aria-label="theme 1"
+              aria-checked="true"
               checked
             />
             <label for="theme1">1</label>
@@ -47,6 +49,7 @@
               name="theme-swticher"
               value="light"
               class="two"
+              aria-label="theme 2"
             />
             <label for="theme2">2</label>
 
@@ -56,6 +59,7 @@
               name="theme-swticher"
               value="custom"
               class="three"
+              aria-label="theme 3"
             />
             <label for="theme3">3</label>
           </fieldset>
@@ -73,7 +77,7 @@
         <button data-number>7</button>
         <button data-number>8</button>
         <button data-number>9</button>
-        <button data-delete>DEL</button>
+        <button data-delete aria-label="delete" class="key">DEL</button>
         <button data-number>4</button>
         <button data-number>5</button>
         <button data-number>6</button>
@@ -81,22 +85,16 @@
         <button data-number>1</button>
         <button data-number>2</button>
         <button data-number>3</button>
-        <button data-operation>-</button>
+        <button data-operation aria-label="minus">-</button>
         <button data-number>.</button>
         <button data-number>0</button>
         <button data-operation>/</button>
-        <button data-operation>x</button>
-        <button data-reset class="span-two">RESET</button>
-        <button data-equals class="span-two">=</button>
+        <button data-operation aria-label="multiply">*</button>
+        <button data-reset value="c" class="span-two key">RESET</button>
+        <button data-equals class="span-two key">=</button>
       </section>
     </main>
 
     <script src="./dist/script.js"></script>
   </body>
 </html>
-
-<!-- stavit legend i sr-only -->
-<!-- stavit da zaokruzi decimalni broj tofixed(2) ili sta vec -->
-<!-- There should be one fieldset, a legend (sr only if needed, I can't remember the design), and 3 labels, each with an input and some text inside (text can be in a span if needed for styling).
-Depends how you're choosing to style the radios what you need to do.
-Stephanie Eckles has some excellent blog posts on styling accessible custom radios and checkboxes on her Modern CSS website if you google that -->
